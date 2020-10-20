@@ -1,0 +1,3 @@
+query HelloGateway {
+  hello
+}

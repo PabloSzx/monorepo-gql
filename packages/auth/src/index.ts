@@ -1,11 +1,13 @@
 import Fastify from "fastify";
 import { Resolvers } from "graphql-gen";
 import mercurius, { MercuriusSchemaOptions } from "mercurius";
-import { resolve } from "path";
+import { join, resolve } from "path";
 
 import { loadFiles } from "@graphql-tools/load-files";
 
-const typeDefs = loadFiles(resolve(__dirname, "../graphql"), {}).then((v) => v.toString());
+const typeDefs = loadFiles(join(resolve(__dirname, "../graphql"), "schema/*.gql"), {}).then((v) =>
+  v.toString()
+);
 
 typeDefs
   .then((typeDefs) => {
@@ -35,7 +37,7 @@ typeDefs
 
     const app = Fastify({
       logger: {
-        level: "error"
+        level: "info"
       }
     });
 

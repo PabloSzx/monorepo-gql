@@ -25,6 +25,7 @@ generates:
       - typed-document-node
 config:
   federation: true
+  useTypeImports: true
 hooks:
   afterAllFileWrite:
     - prettier --write src/index.ts ../../introspection.json ../**/graphql/**/*

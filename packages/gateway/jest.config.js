@@ -1,6 +1,6 @@
 module.exports = {
   transform: {
-    "^.+\\.tsx?$": "esbuild-jest"
+    "^.+\\.tsx?$": "./esbuild-jest.js"
   },
   testPathIgnorePatterns: ["/node_modules/", "lib", "dist"]
 };

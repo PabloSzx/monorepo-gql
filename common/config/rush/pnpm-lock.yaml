@@ -30,6 +30,7 @@ dependencies:
   graphql: 15.3.0
   jest: 26.6.0
   mercurius: 6.2.0
+  mercurius-integration-testing: 3.0.1_586c7414db06a94a6866753f4402c90d
   prettier: 2.1.2
   rimraf: 3.0.2
   typescript: 4.0.3
@@ -2519,6 +2520,12 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-+Hp8fLp57wnUSt0tY0tHEXh4voZRDnoIrZPqlo3DPiI4y9lwg/jqx+1Om94/W6ZaPDOUbnjOt/99w66zk+l1Xg==
+  /cookie/0.4.1:
+    dev: false
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha512-ZwrFkGJxUR3EIoXtO+yVE69Eb7KlixbaeAWfBQB9vVsNn/o+Yw69gBWSSDK825hQNdN+wF8zELf3dFNl/kxkUA==
   /copy-descriptor/0.1.1:
     dev: false
     engines:
@@ -3628,6 +3635,12 @@ packages:
       node: '>=8.0.0'
     resolution:
       integrity: sha512-pjzuKtY64GYfWizNAJ0fr9VqttZkNiK2iS430LtIHzjBEr6bX8Am2zm4sW4Ro5wjWW5cAlRL1qAMTcXbjNAO2Q==
+  /get-port/5.1.1:
+    dev: false
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-g/Q1aTSDOxFpchXC4i8ZWvxA1lnPqx/JHqcpIw0/LX9T8x/GBbi6YnlN5nhaKIFkT8oFsscUKgDJYxfwfS6QsQ==
   /get-stdin/4.0.1:
     dev: false
     engines:
@@ -5536,6 +5549,21 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-cstmi0JSKCkKu/qFaJJYcwioAfs=
+  /mercurius-integration-testing/3.0.1_586c7414db06a94a6866753f4402c90d:
+    dependencies:
+      cookie: 0.4.1
+      fastify: 3.7.0
+      get-port: 5.1.1
+      graphql: 15.3.0
+      mercurius: 6.2.0
+      ws: 7.3.1
+    dev: false
+    peerDependencies:
+      fastify: ^3.6.0
+      graphql: ^15.3.0
+      mercurius: ^6.1.1
+    resolution:
+      integrity: sha512-PfebtmsAq+uRQ1BRfXadv5AKAPysn5x4n1vqv+jVYW8Y/bzm4zKye4tAI7FlBU9iagz1x/PspQT46G+nCPi4Yw==
   /mercurius/6.2.0:
     dependencies:
       end-of-stream: 1.4.4
@@ -8188,6 +8216,7 @@ packages:
       graphql: 15.3.0
       jest: 26.6.0
       mercurius: 6.2.0
+      mercurius-integration-testing: 3.0.1_586c7414db06a94a6866753f4402c90d
       nodemon: 2.0.6
       rimraf: 3.0.2
       typescript: 4.0.3
@@ -8195,7 +8224,7 @@ packages:
     dev: false
     name: '@rush-temp/gateway'
     resolution:
-      integrity: sha512-jIFX6ercyRt07Uk1U7ONmHURoIUigC5typlOsqtuiMR3K2C2m8e6zlZ/x/A0Xlstxms9rTDopOHk4JjD1LbSwQ==
+      integrity: sha512-UYvbfnj0/V/KhZONDQFRYM7ic5Kr5jnw28liPlcYtTvQ8Ost25pRMVrBHJZvjOUBhjWh8zd9RTWhUpNTWnSviw==
       tarball: 'file:projects/gateway.tgz'
     version: 0.0.0
   'file:projects/graphql-gen.tgz':
@@ -8261,6 +8290,7 @@ specifiers:
   graphql: ^15.3.0
   jest: ^26.6.0
   mercurius: ^6.2.0
+  mercurius-integration-testing: ~3.0.1
   prettier: ^2.1.2
   rimraf: ^3.0.2
   typescript: ^4.0.3

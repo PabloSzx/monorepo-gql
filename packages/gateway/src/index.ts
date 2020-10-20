@@ -8,7 +8,7 @@ import { resolve } from "path";
 
 const writeFile = promisify(fs.writeFile);
 
-const app = Fastify({
+export const app = Fastify({
   logger: {
     level: "info"
   }
@@ -55,9 +55,10 @@ setInterval(async () => {
   }
 }, 5000);
 
-app
-  .listen(4000)
-  .then(() => {
-    writeSchemaToFile();
-  })
-  .catch(console.error);
+if (process.env.NODE_ENV !== "test")
+  app
+    .listen(4000)
+    .then(() => {
+      writeSchemaToFile();
+    })
+    .catch(console.error);
