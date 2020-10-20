@@ -1,0 +1,24 @@
+directive @external on FIELD_DEFINITION
+
+directive @requires(fields: _FieldSet!) on FIELD_DEFINITION
+
+directive @provides(fields: _FieldSet!) on FIELD_DEFINITION
+
+directive @key(fields: _FieldSet!) on OBJECT | INTERFACE
+
+directive @extends on OBJECT | INTERFACE
+
+scalar _Any
+
+scalar _FieldSet
+
+type Query {
+  hello(a: String): String!
+  humans: [Human!]!
+}
+
+type Human {
+  id: ID!
+  name: String!
+  number: Int
+}

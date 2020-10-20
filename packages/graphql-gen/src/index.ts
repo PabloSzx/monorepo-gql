@@ -1,4 +1,4 @@
-import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from "graphql";
+import { GraphQLResolveInfo } from "graphql";
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type RequireFields<T, K extends keyof T> = { [X in Exclude<keyof T, K>]?: T[X] } &
@@ -10,20 +10,38 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  _Any: any;
   _FieldSet: any;
 };
 
 export type Query = {
   __typename?: "Query";
   hello: Scalars["String"];
+  humans: Array<Human>;
 };
 
 export type QueryHelloArgs = {
   a?: Maybe<Scalars["String"]>;
 };
 
+export type Human = {
+  __typename?: "Human";
+  id: Scalars["ID"];
+  name: Scalars["String"];
+  number?: Maybe<Scalars["Int"]>;
+};
+
 export type ResolverTypeWrapper<T> = Promise<T> | T;
+
+export type ReferenceResolver<TResult, TReference, TContext> = (
+  reference: TReference,
+  context: TContext,
+  info: GraphQLResolveInfo
+) => Promise<TResult> | TResult;
+
+type ScalarCheck<T, S> = S extends true ? T : NullableCheck<T, S>;
+type NullableCheck<T, S> = Maybe<T> extends T ? Maybe<ListCheck<NonNullable<T>, S>> : ListCheck<T, S>;
+type ListCheck<T, S> = T extends (infer U)[] ? NullableCheck<U, S>[] : GraphQLRecursivePick<T, S>;
+export type GraphQLRecursivePick<T, S> = { [K in keyof T & keyof S]: ScalarCheck<T[K], S[K]> };
 
 export type LegacyStitchingResolver<TResult, TParent, TContext, TArgs> = {
   fragment: string;
@@ -104,34 +122,50 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
-  _Any: ResolverTypeWrapper<Scalars["_Any"]>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars["String"]>;
+  Human: ResolverTypeWrapper<Human>;
+  ID: ResolverTypeWrapper<Scalars["ID"]>;
+  Int: ResolverTypeWrapper<Scalars["Int"]>;
   Boolean: ResolverTypeWrapper<Scalars["Boolean"]>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
-  _Any: Scalars["_Any"];
   Query: {};
   String: Scalars["String"];
+  Human: Human;
+  ID: Scalars["ID"];
+  Int: Scalars["Int"];
   Boolean: Scalars["Boolean"];
 };
-
-export interface _AnyScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes["_Any"], any> {
-  name: "_Any";
-}
 
 export type QueryResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes["Query"] = ResolversParentTypes["Query"]
 > = {
   hello?: Resolver<ResolversTypes["String"], ParentType, ContextType, RequireFields<QueryHelloArgs, never>>;
+  humans?: Resolver<Array<ResolversTypes["Human"]>, ParentType, ContextType>;
+};
+
+export type HumanResolvers<
+  ContextType = any,
+  ParentType extends ResolversParentTypes["Human"] = ResolversParentTypes["Human"]
+> = {
+  __resolveReference?: ReferenceResolver<
+    Maybe<ResolversTypes["Human"]>,
+    { __typename: "Human" } & GraphQLRecursivePick<ParentType, { id: true }>,
+    ContextType
+  >;
+  id?: Resolver<ResolversTypes["ID"], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
+  number?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type Resolvers<ContextType = any> = {
-  _Any?: GraphQLScalarType;
   Query?: QueryResolvers<ContextType>;
+  Human?: HumanResolvers<ContextType>;
 };
 
 /**

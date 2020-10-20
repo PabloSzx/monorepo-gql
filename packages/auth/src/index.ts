@@ -14,10 +14,24 @@ typeDefs
         hello: (_root, _args, _ctx, _info) => {
           return "hello";
         }
+      },
+      Human: {
+        name(root) {
+          return root.id;
+        },
+
+        __resolveReference: async (_a, _b, _c) => {
+          return {
+            id: "",
+            name: ""
+          };
+        }
       }
     };
 
-    const loaders: MercuriusSchemaOptions["loaders"] = {};
+    const loaders: MercuriusSchemaOptions["loaders"] = {
+      Human: {}
+    };
 
     const app = Fastify({
       logger: {
@@ -27,8 +41,8 @@ typeDefs
 
     app.register(mercurius, {
       schema: typeDefs,
-      resolvers: resolvers as {},
-      loaders,
+      resolvers: resolvers,
+      loaders: loaders,
       federationMetadata: true
     });
 

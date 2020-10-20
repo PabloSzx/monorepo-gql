@@ -1,16 +1,30 @@
 overwrite: true
-schema: "http://localhost:4000/graphql"
+schema:
+  - ../**/schema/*.gql
+documents:
+  - ../**/operations/*.gql
 generates:
   src/index.ts:
     plugins:
-      - "typescript"
-      - "typescript-resolvers"
+      - typescript
+      - typescript-resolvers
+  ../../introspection.json:
+    plugins:
+      - introspection
     config:
-      federation: true
+      minify: true
+  ../:
+    preset: near-operation-file
+    presetConfig:
+      extension: .ts
+      baseTypesPath: graphql-gen
+      folder: ../generated
+    plugins:
+      - typescript
+      - typescript-operations
+      - typed-document-node
+config:
+  federation: true
 hooks:
   afterAllFileWrite:
-    - prettier --write src/index.ts
-watch: true
-watchConfig:
-  usePolling: true
-  interval: 1000
+    - prettier --write src/index.ts ../../introspection.json ../**/graphql/**/*
