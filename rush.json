@@ -26,7 +26,7 @@
    * Specify one of: "pnpmVersion", "npmVersion", or "yarnVersion".  See the Rush documentation
    * for details about these alternatives.
    */
-  "pnpmVersion": "5.9.3",
+  "pnpmVersion": "5.10.0-0",
 
   // "npmVersion": "4.5.0",
   // "yarnVersion": "1.9.4",
@@ -372,6 +372,14 @@
     {
       "packageName": "gateway",
       "projectFolder": "packages/gateway"
+    },
+    {
+      "packageName": "graphql-gen",
+      "projectFolder": "packages/graphql-gen"
+    },
+    {
+      "packageName": "auth",
+      "projectFolder": "packages/auth"
     }
     // {
     //   /**
