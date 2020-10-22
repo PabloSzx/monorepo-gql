@@ -1,4 +1,4 @@
-import { app as AuthService } from "auth";
+import { app as AuthService } from "auth-service";
 import { createMercuriusTestClient } from "mercurius-integration-testing";
 import waitOn from "wait-on";
 
