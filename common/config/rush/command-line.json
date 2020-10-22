@@ -43,7 +43,7 @@
       "name": "dev",
       "summary": "dev",
       "autoinstallerName": "concurrently",
-      "shellCommand": "concurrently -i -n gateway,auth,gql \"pnpm run --dir ./packages/gateway dev\" \"pnpm run --dir ./packages/auth dev\" \"pnpm run --dir ./packages/graphql-gen dev\""
+      "shellCommand": "pnpm run --dir ./packages/graphql-gen build && concurrently -i -n gateway,auth,gql \"pnpm run --dir ./packages/gateway dev\" \"pnpm run --dir ./packages/auth dev\" \"pnpm run --dir ./packages/graphql-gen dev\""
     }
     // {
     //   /**

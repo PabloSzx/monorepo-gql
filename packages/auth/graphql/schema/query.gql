@@ -8,3 +8,7 @@ extend type Human @key(fields: "id") {
   name: String!
   number: Int
 }
+
+extend type Subscription {
+  news: String!
+}

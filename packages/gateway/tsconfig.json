@@ -14,13 +14,13 @@
     "strict": true,
     "esModuleInterop": true,
     "types": ["jest", "node"],
-
-    "module": "commonjs",
+    "moduleResolution": "node",
+    "module": "esnext",
     "target": "es2020",
     "lib": ["es2020"],
     "skipLibCheck": true,
     "preserveWatchOutput": true
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules", "lib", "tests"]
 }

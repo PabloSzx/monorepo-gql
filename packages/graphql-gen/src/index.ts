@@ -30,6 +30,11 @@ export type Human = {
   number?: Maybe<Scalars["Int"]>;
 };
 
+export type Subscription = {
+  __typename?: "Subscription";
+  news: Scalars["String"];
+};
+
 export type ResolverTypeWrapper<T> = Promise<T> | T;
 
 export type ReferenceResolver<TResult, TReference, TContext> = (
@@ -127,6 +132,7 @@ export type ResolversTypes = {
   Human: ResolverTypeWrapper<Human>;
   ID: ResolverTypeWrapper<Scalars["ID"]>;
   Int: ResolverTypeWrapper<Scalars["Int"]>;
+  Subscription: ResolverTypeWrapper<{}>;
   Boolean: ResolverTypeWrapper<Scalars["Boolean"]>;
 };
 
@@ -137,6 +143,7 @@ export type ResolversParentTypes = {
   Human: Human;
   ID: Scalars["ID"];
   Int: Scalars["Int"];
+  Subscription: {};
   Boolean: Scalars["Boolean"];
 };
 
@@ -163,9 +170,17 @@ export type HumanResolvers<
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type SubscriptionResolvers<
+  ContextType = any,
+  ParentType extends ResolversParentTypes["Subscription"] = ResolversParentTypes["Subscription"]
+> = {
+  news?: SubscriptionResolver<ResolversTypes["String"], "news", ParentType, ContextType>;
+};
+
 export type Resolvers<ContextType = any> = {
   Query?: QueryResolvers<ContextType>;
   Human?: HumanResolvers<ContextType>;
+  Subscription?: SubscriptionResolvers<ContextType>;
 };
 
 /**

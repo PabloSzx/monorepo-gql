@@ -4,8 +4,11 @@ import AltairFastifyPlugin from "altair-fastify-plugin";
 import { printSchema } from "graphql";
 import { promisify } from "util";
 import fs from "fs";
-import { resolve } from "path";
+import { resolve, dirname } from "path";
+import { fileURLToPath } from "url";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const writeFile = promisify(fs.writeFile);
 
 export const app = Fastify({
@@ -24,7 +27,8 @@ app.register(mercurius, {
       }
     ]
   },
-  jit: 1
+  jit: 1,
+  subscription: true
 });
 
 app.register(AltairFastifyPlugin, {});
@@ -37,23 +41,25 @@ function writeSchemaToFile() {
   });
 }
 
-setInterval(async () => {
-  //@ts-expect-error
-  const schema = await app.graphql.gateway.refresh().catch((err) => {
-    if (
-      Array.isArray(err.errors) ? err.errors.every((v: { code: string }) => v.code !== "ECONNRESET") : true
-    ) {
-      app.log.error(JSON.stringify(err));
+app.ready().then(() => {
+  setInterval(async () => {
+    //@ts-expect-error
+    const schema = await app.graphql.gateway.refresh().catch((err) => {
+      if (
+        Array.isArray(err.errors) ? err.errors.every((v: { code: string }) => v.code !== "ECONNRESET") : true
+      ) {
+        app.log.error(JSON.stringify(err));
+      }
+    });
+
+    if (schema != null) {
+      app.log.info("Schema refreshed");
+      app.graphql.replaceSchema(schema);
+
+      writeSchemaToFile();
     }
-  });
-
-  if (schema != null) {
-    app.log.info("Schema refreshed");
-    app.graphql.replaceSchema(schema);
-
-    writeSchemaToFile();
-  }
-}, 5000);
+  }, 25000);
+});
 
 if (process.env.NODE_ENV !== "test")
   app

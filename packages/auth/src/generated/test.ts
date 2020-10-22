@@ -1,4 +1,4 @@
-import type * as Types from "../../../graphql-gen";
+import type * as Types from "graphql-gen";
 
 import type { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/core";
 export type Maybe<T> = T | null;
@@ -30,11 +30,20 @@ export type Human = {
   number?: Maybe<Scalars["Int"]>;
 };
 
+export type Subscription = {
+  __typename?: "Subscription";
+  news: Scalars["String"];
+};
+
 export type HelloQueryVariables = Types.Exact<{ [key: string]: never }>;
 
 export type HelloQuery = { __typename?: "Query" } & Pick<Types.Query, "hello"> & {
     humans: Array<{ __typename?: "Human" } & Pick<Types.Human, "id" | "name">>;
   };
+
+export type NewsSubscriptionVariables = Types.Exact<{ [key: string]: never }>;
+
+export type NewsSubscription = { __typename?: "Subscription" } & Pick<Types.Subscription, "news">;
 
 export const HelloDocument: DocumentNode<HelloQuery, HelloQueryVariables> = {
   kind: "Document",
@@ -63,6 +72,22 @@ export const HelloDocument: DocumentNode<HelloQuery, HelloQueryVariables> = {
             }
           }
         ]
+      }
+    }
+  ]
+};
+export const NewsDocument: DocumentNode<NewsSubscription, NewsSubscriptionVariables> = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "subscription",
+      name: { kind: "Name", value: "News" },
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [{ kind: "Field", name: { kind: "Name", value: "news" }, arguments: [], directives: [] }]
       }
     }
   ]

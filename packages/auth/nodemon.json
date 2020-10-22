@@ -1,8 +1,7 @@
 {
   "$schema": "http://json.schemastore.org/nodemon",
-
-  "watch": ["src", "graphql"],
-  "ext": "ts,js,gql,graphql",
-  "exec": "etsc && node ./dist/index.js",
+  "watch": ["src"],
+  "ext": "ts",
+  "exec": "pnpm build && pnpm start",
   "legacyWatch": true
 }

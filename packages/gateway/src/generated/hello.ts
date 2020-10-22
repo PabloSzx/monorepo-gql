@@ -1,4 +1,4 @@
-import type * as Types from "../../../graphql-gen";
+import type * as Types from "graphql-gen";
 
 import type { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/core";
 export type Maybe<T> = T | null;
@@ -30,11 +30,16 @@ export type Human = {
   number?: Maybe<Scalars["Int"]>;
 };
 
-export type HelloGatewayQueryVariables = Types.Exact<{
-  a?: Types.Maybe<Types.Scalars["String"]>;
-}>;
+export type Subscription = {
+  __typename?: "Subscription";
+  news: Scalars["String"];
+};
 
-export type HelloGatewayQuery = { __typename?: "Query" } & Pick<Types.Query, "hello">;
+export type HelloGatewayQueryVariables = Types.Exact<{ [key: string]: never }>;
+
+export type HelloGatewayQuery = { __typename?: "Query" } & Pick<Types.Query, "hello"> & {
+    humans: Array<{ __typename?: "Human" } & Pick<Types.Human, "id" | "name">>;
+  };
 
 export const HelloGatewayDocument: DocumentNode<HelloGatewayQuery, HelloGatewayQueryVariables> = {
   kind: "Document",
@@ -43,18 +48,26 @@ export const HelloGatewayDocument: DocumentNode<HelloGatewayQuery, HelloGatewayQ
       kind: "OperationDefinition",
       operation: "query",
       name: { kind: "Name", value: "HelloGateway" },
-      variableDefinitions: [
-        {
-          kind: "VariableDefinition",
-          variable: { kind: "Variable", name: { kind: "Name", value: "a" } },
-          type: { kind: "NamedType", name: { kind: "Name", value: "String" } },
-          directives: []
-        }
-      ],
+      variableDefinitions: [],
       directives: [],
       selectionSet: {
         kind: "SelectionSet",
-        selections: [{ kind: "Field", name: { kind: "Name", value: "hello" }, arguments: [], directives: [] }]
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "hello" }, arguments: [], directives: [] },
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "humans" },
+            arguments: [],
+            directives: [],
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "id" }, arguments: [], directives: [] },
+                { kind: "Field", name: { kind: "Name", value: "name" }, arguments: [], directives: [] }
+              ]
+            }
+          }
+        ]
       }
     }
   ]

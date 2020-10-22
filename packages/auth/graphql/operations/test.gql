@@ -5,3 +5,7 @@ query Hello {
     name
   }
 }
+
+subscription News {
+  news
+}

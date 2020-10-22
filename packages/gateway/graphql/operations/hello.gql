@@ -1,3 +1,7 @@
 query HelloGateway {
   hello
+  humans {
+    id
+    name
+  }
 }

@@ -22,3 +22,7 @@ type Human {
   name: String!
   number: Int
 }
+
+type Subscription {
+  news: String!
+}

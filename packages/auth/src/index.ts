@@ -1,7 +1,11 @@
 import Fastify from "fastify";
 import { Resolvers } from "graphql-gen";
 import mercurius, { MercuriusSchemaOptions } from "mercurius";
-import { join, resolve } from "path";
+import { join, resolve, dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 import { loadFiles } from "@graphql-tools/load-files";
 
@@ -43,9 +47,10 @@ typeDefs
 
     app.register(mercurius, {
       schema: typeDefs,
-      resolvers: resolvers,
+      resolvers: resolvers as {},
       loaders: loaders,
-      federationMetadata: true
+      federationMetadata: true,
+      subscription: true
     });
 
     app.listen(4001);

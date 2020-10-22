@@ -17,8 +17,8 @@ generates:
     preset: near-operation-file
     presetConfig:
       extension: .ts
-      baseTypesPath: graphql-gen
-      folder: ../generated
+      baseTypesPath: "~graphql-gen"
+      folder: ../../src/generated
     plugins:
       - typescript
       - typescript-operations
@@ -28,4 +28,4 @@ config:
   useTypeImports: true
 hooks:
   afterAllFileWrite:
-    - prettier --write src/index.ts ../../introspection.json ../**/graphql/**/*
+    - prettier --write

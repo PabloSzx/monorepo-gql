@@ -1,6 +1,7 @@
 {
+  "$schema": "http://json.schemastore.org/nodemon",
   "watch": ["src"],
   "ext": "ts",
-  "exec": "etsc && node ./dist/index.js",
+  "exec": "pnpm build && pnpm start",
   "legacyWatch": true
 }
