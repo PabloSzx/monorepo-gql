@@ -1,14 +1,49 @@
-import { app } from "../src/index";
+import { app as AuthService } from "auth";
 import { createMercuriusTestClient } from "mercurius-integration-testing";
+import waitOn from "wait-on";
 
-import { HelloGatewayDocument } from "../graphql/generated/hello";
+import { HelloGatewayDocument } from "../src/generated/hello";
+import { app, registerMercurius } from "../src/index";
 
-it("works", () => {
-  const client = createMercuriusTestClient(app);
+beforeAll(async () => {
+  await AuthService.listen(4001);
+  await waitOn({
+    resources: ["tcp:4001"]
+  });
+  await registerMercurius();
+});
 
-  const response = client.query(HelloGatewayDocument, {});
+afterAll(async () => {
+  await AuthService.close();
+});
 
-  response.then(({ data }) => {
-    expect(data.hello).toBe("world");
+describe("gateway", () => {
+  it("service alone", async () => {
+    const client = createMercuriusTestClient(AuthService);
+
+    const response = await client.query(HelloGatewayDocument, {
+      variables: {}
+    });
+
+    expect(response).toEqual({
+      data: {
+        hello: "world",
+        humans: []
+      }
+    });
+  });
+  it("works", async () => {
+    const client = createMercuriusTestClient(app);
+
+    const response = await client.query(HelloGatewayDocument, {
+      variables: {}
+    });
+
+    expect(response).toEqual({
+      data: {
+        hello: "world",
+        humans: []
+      }
+    });
   });
 });

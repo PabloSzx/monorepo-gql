@@ -4,16 +4,17 @@
   "description": "",
   "license": "MIT",
   "author": "PabloSz",
-  "main": "dist/index.mjs",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rimraf dist && graphql-codegen && tsup -d dist --dts --format esm src/index.ts",
+    "build": "graphql-codegen && tsup -d dist --dts --format cjs src/index.ts",
     "dev": "nodemon"
   },
   "dependencies": {
     "@graphql-codegen/import-types-preset": "~1.18.0",
     "@graphql-typed-document-node/core": "~3.1.0",
-    "graphql": "^15.3.0"
+    "graphql": "^15.3.0",
+    "cross-env": "~7.0.2"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "1.18.0",

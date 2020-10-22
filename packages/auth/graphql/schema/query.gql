@@ -3,9 +3,12 @@ extend type Query {
   humans: [Human!]!
 }
 
-extend type Human @key(fields: "id") {
+type Human @key(fields: "id") {
   id: ID!
   name: String!
+}
+
+extend type Human {
   number: Int
 }
 

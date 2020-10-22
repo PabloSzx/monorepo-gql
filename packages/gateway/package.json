@@ -4,13 +4,13 @@
   "description": "",
   "license": "MIT",
   "author": "PabloSz",
-  "main": "dist/index.mjs",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rimraf dist && tsup src/**/* -d dist --dts --format esm",
-    "dev": "wait-on tcp:4001 && rimraf dist && nodemon",
-    "dev:nodemon": "tsup src/**/* -d dist --format esm && concurrently --kill-others-on-fail --raw \"pnpm start\" \"tsc\"",
-    "start": "node dist/index.mjs",
+    "build": "tsup src/**/* -d dist --dts --format cjs",
+    "dev": "wait-on tcp:4001 && nodemon",
+    "dev:nodemon": "tsup src/**/* -d dist --format cjs && concurrently --kill-others-on-fail --raw \"pnpm start\" \"tsc\"",
+    "start": "node dist/index.js",
     "test": "jest"
   },
   "resolutions": {
@@ -23,7 +23,10 @@
     "graphql": "^15.3.0",
     "graphql-gen": "~1.0.0",
     "mercurius": "^6.3.0",
-    "wait-on": "^5.2.0"
+    "wait-on": "^5.2.0",
+    "auth": "~1.0.0",
+    "waait": "~1.0.5",
+    "cross-env": "~7.0.2"
   },
   "devDependencies": {
     "@graphql-tools/utils": "~6.2.4",

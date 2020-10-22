@@ -1,58 +1,45 @@
 import Fastify from "fastify";
 import { Resolvers } from "graphql-gen";
 import mercurius, { MercuriusSchemaOptions } from "mercurius";
-import { join, resolve, dirname } from "path";
-import { fileURLToPath } from "url";
+import { join, resolve } from "path";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import { loadFilesSync } from "@graphql-tools/load-files";
 
-import { loadFiles } from "@graphql-tools/load-files";
+const schema = loadFilesSync(join(resolve(__dirname, "../graphql"), "schema/*.gql"), {}).toString();
 
-const typeDefs = loadFiles(join(resolve(__dirname, "../graphql"), "schema/*.gql"), {}).then((v) =>
-  v.toString()
-);
+const IS_TEST = process.env["NODE_ENV"] === "test";
 
-typeDefs
-  .then((typeDefs) => {
-    const resolvers: Resolvers = {
-      Query: {
-        hello: (_root, _args, _ctx, _info) => {
-          return "hello";
-        }
-      },
-      Human: {
-        name(root) {
-          return root.id;
-        },
-
-        __resolveReference: async (_a, _b, _c) => {
-          return {
-            id: "",
-            name: ""
-          };
-        }
-      }
-    };
-
-    const loaders: MercuriusSchemaOptions["loaders"] = {
-      Human: {}
-    };
-
-    const app = Fastify({
-      logger: {
+export const app = Fastify({
+  logger: IS_TEST
+    ? false
+    : {
         level: "info"
       }
-    });
+});
 
-    app.register(mercurius, {
-      schema: typeDefs,
-      resolvers: resolvers as {},
-      loaders: loaders,
-      federationMetadata: true,
-      subscription: true
-    });
+const resolvers: Resolvers = {
+  Query: {
+    hello: (_root, _args, _ctx, _info) => {
+      console.log("resolver query hello");
+      return "world";
+    },
+    humans: () => []
+  },
+  Human: {}
+};
 
-    app.listen(4001);
-  })
-  .catch(console.error);
+const loaders: MercuriusSchemaOptions["loaders"] = {
+  Human: {}
+};
+
+app.register(mercurius, {
+  schema,
+  resolvers: resolvers as {},
+  loaders: loaders,
+  federationMetadata: true,
+  subscription: true
+});
+
+if (!IS_TEST) {
+  app.listen(4001);
+}

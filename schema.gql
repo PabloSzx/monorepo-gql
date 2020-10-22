@@ -17,12 +17,12 @@ type Query {
   humans: [Human!]!
 }
 
+type Subscription {
+  news: String!
+}
+
 type Human {
   id: ID!
   name: String!
   number: Int
-}
-
-type Subscription {
-  news: String!
 }
