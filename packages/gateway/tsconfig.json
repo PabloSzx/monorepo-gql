@@ -2,9 +2,9 @@
   "$schema": "http://json.schemastore.org/tsconfig",
 
   "compilerOptions": {
-    "outDir": "lib",
+    "outDir": "dist",
     "rootDirs": ["src/"],
-
+    "emitDeclarationOnly": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "sourceMap": true,
