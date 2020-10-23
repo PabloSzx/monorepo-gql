@@ -1,0 +1,9 @@
+{
+  "name": "cli",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "concurrently": "^5.3.0",
+    "update-versions": "^2.4.24"
+  }
+}

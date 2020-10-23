@@ -6,14 +6,15 @@
   "author": "PabloSz",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsup-globby src/* -d dist --dts --minify",
+    "build": "tsc --emitDeclarationOnly && tsup-globby src -d dist --minify",
     "test": "exit 0"
   },
   "dependencies": {
-    "tsup-globby": "~1.0.1"
+    "tsup-globby": "^1.0.1"
   },
   "devDependencies": {
-    "@jest/types": "~26.6.0",
-    "@types/node": "~14.14.2"
+    "@jest/types": "^26.6.1",
+    "@types/node": "^14.14.2",
+    "typescript": "^4.0.3"
   }
 }
