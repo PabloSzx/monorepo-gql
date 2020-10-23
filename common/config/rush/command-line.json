@@ -28,7 +28,8 @@
       "enableParallelism": true,
       "description": "test",
       "incremental": true,
-      "ignoreMissingScript": true
+      "ignoreMissingScript": true,
+      "allowWarningsInSuccessfulBuild": true
     },
     {
       "commandKind": "bulk",
