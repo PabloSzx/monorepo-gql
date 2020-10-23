@@ -23,7 +23,8 @@
     "graphql-gen": "~1.0.0",
     "mercurius": "^6.3.0",
     "waait": "~1.0.5",
-    "wait-on": "^5.2.0"
+    "wait-on": "^5.2.0",
+    "common": "~1.0.0"
   },
   "devDependencies": {
     "@graphql-tools/utils": "~6.2.4",

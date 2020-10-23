@@ -1,6 +1,1 @@
-module.exports = {
-  transform: {
-    "^.+\\.tsx?$": "./esbuild-jest.js"
-  },
-  testPathIgnorePatterns: ["/node_modules/", "lib", "dist"]
-};
+module.exports = require("common").createJestConfig({});

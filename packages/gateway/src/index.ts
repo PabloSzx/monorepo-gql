@@ -1,12 +1,11 @@
 import AltairFastifyPlugin from "altair-fastify-plugin";
+import { IS_TEST } from "common";
 import Fastify from "fastify";
 import fs from "fs";
 import { printSchema } from "graphql";
 import mercurius from "mercurius";
 import { resolve } from "path";
 import { promisify } from "util";
-
-const IS_TEST = process.env["NODE_ENV"] === "test";
 
 const writeFile = promisify(fs.writeFile);
 

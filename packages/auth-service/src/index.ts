@@ -1,3 +1,4 @@
+import { IS_TEST } from "common";
 import Fastify from "fastify";
 import { Resolvers } from "graphql-gen";
 import mercurius, { MercuriusSchemaOptions } from "mercurius";
@@ -6,8 +7,6 @@ import { join, resolve } from "path";
 import { loadFilesSync } from "@graphql-tools/load-files";
 
 const schema = loadFilesSync(join(resolve(__dirname, "../graphql"), "schema/*.gql"), {}).toString();
-
-const IS_TEST = process.env["NODE_ENV"] === "test";
 
 export const app = Fastify({
   logger: IS_TEST

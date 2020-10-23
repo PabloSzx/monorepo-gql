@@ -380,6 +380,10 @@
     {
       "packageName": "auth-service",
       "projectFolder": "packages/auth-service"
+    },
+    {
+      "packageName": "common",
+      "projectFolder": "packages/common"
     }
     // {
     //   /**

@@ -25,7 +25,8 @@
     "graphql-gen": "~1.0.0",
     "mercurius": "^6.3.0",
     "mercurius-integration-testing": "~3.1.1",
-    "cross-env": "~7.0.2"
+    "cross-env": "~7.0.2",
+    "common": "~1.0.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.15",

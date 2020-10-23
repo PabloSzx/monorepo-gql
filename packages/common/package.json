@@ -1,0 +1,19 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "description": "common",
+  "license": "MIT",
+  "author": "PabloSz",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsup-globby src/* -d dist --dts --minify",
+    "test": "exit 0"
+  },
+  "dependencies": {
+    "tsup-globby": "~1.0.1"
+  },
+  "devDependencies": {
+    "@jest/types": "~26.6.0",
+    "@types/node": "~14.14.2"
+  }
+}
