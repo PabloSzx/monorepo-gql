@@ -17,22 +17,29 @@ dependencies:
   '@rush-temp/gateway': 'file:projects/gateway.tgz'
   '@rush-temp/graphql-gen': 'file:projects/graphql-gen.tgz'
   '@types/concurrently': 5.2.1
+  '@types/jest': 26.0.15
+  '@types/node': 14.14.2
   '@types/nodemon': 1.19.0
   '@types/rimraf': 3.0.0
   '@types/wait-on': 4.0.0
   altair-fastify-plugin: 2.5.1_fastify@3.7.0
   concurrently: 5.3.0
   cross-env: 7.0.2
+  esbuild: 0.7.19
   fastify: 3.7.0
   graphql: 15.3.0
   jest: 26.6.0
+  mercurius: 6.3.0
+  mercurius-integration-testing: 3.1.1_717a80a6550029edce579219e331e900
+  nodemon: 2.0.6
   prettier: 2.1.2
   rimraf: 3.0.2
   tsup: 3.7.0_typescript@4.0.3
+  tsup-globby: 1.0.1_typescript@4.0.3
   typescript: 4.0.3
   waait: 1.0.5
   wait-on: 5.2.0
-lockfileVersion: 5.2
+lockfileVersion: 5.1
 packages:
   /@ardatan/aggregate-error/0.0.6:
     dependencies:
@@ -681,7 +688,7 @@ packages:
       is-glob: 4.0.1
       json-to-pretty-yaml: 1.2.2
       latest-version: 5.1.0
-      listr: 0.14.3
+      listr: 0.14.3_listr@0.14.3
       listr-update-renderer: 0.5.0_listr@0.14.3
       log-symbols: 4.0.0
       lower-case: 2.0.1
@@ -1161,7 +1168,7 @@ packages:
       jest-haste-map: 26.6.0
       jest-message-util: 26.6.0
       jest-regex-util: 26.0.0
-      jest-resolve: 26.6.0
+      jest-resolve: 26.6.0_jest-resolve@26.6.0
       jest-resolve-dependencies: 26.6.0
       jest-runner: 26.6.0
       jest-runtime: 26.6.0
@@ -1231,7 +1238,7 @@ packages:
       istanbul-lib-source-maps: 4.0.0
       istanbul-reports: 3.0.2
       jest-haste-map: 26.6.0
-      jest-resolve: 26.6.0
+      jest-resolve: 26.6.0_jest-resolve@26.6.0
       jest-util: 26.6.0
       jest-worker: 26.5.0
       slash: 3.0.0
@@ -4447,7 +4454,7 @@ packages:
       jest-get-type: 26.3.0
       jest-jasmine2: 26.6.0
       jest-regex-util: 26.0.0
-      jest-resolve: 26.6.0
+      jest-resolve: 26.6.0_jest-resolve@26.6.0
       jest-util: 26.6.0
       jest-validate: 26.6.0
       micromatch: 4.0.2
@@ -4619,7 +4626,7 @@ packages:
       integrity: sha512-HsNmL8vVIn1rL1GWA21Drpy9Cl+7GImwbWz/0fkWHrUXVzuaG7rP0vwLtE+/n70Mt0U8nPkz8fxioi3SC0wqhw==
   /jest-pnp-resolver/1.2.2_jest-resolve@26.6.0:
     dependencies:
-      jest-resolve: 26.6.0
+      jest-resolve: 26.6.0_jest-resolve@26.6.0
     dev: false
     engines:
       node: '>=6'
@@ -4646,7 +4653,7 @@ packages:
       node: '>= 10.14.2'
     resolution:
       integrity: sha512-4di+XUT7LwJJ8b8qFEEDQssC5+aeVjLhvRICCaS4alh/EVS9JCT1armfJ3pnSS8t4o6659WbMmKVo82H4LuUVw==
-  /jest-resolve/26.6.0:
+  /jest-resolve/26.6.0_jest-resolve@26.6.0:
     dependencies:
       '@jest/types': 26.6.0
       chalk: 4.1.0
@@ -4659,6 +4666,8 @@ packages:
     dev: false
     engines:
       node: '>= 10.14.2'
+    peerDependencies:
+      jest-resolve: '*'
     resolution:
       integrity: sha512-tRAz2bwraHufNp+CCmAD8ciyCpXCs1NQxB5EJAmtCFy6BN81loFEGWKzYu26Y62lAJJe4X4jg36Kf+NsQyiStQ==
   /jest-runner/26.6.0:
@@ -4677,7 +4686,7 @@ packages:
       jest-haste-map: 26.6.0
       jest-leak-detector: 26.6.0
       jest-message-util: 26.6.0
-      jest-resolve: 26.6.0
+      jest-resolve: 26.6.0_jest-resolve@26.6.0
       jest-runtime: 26.6.0
       jest-util: 26.6.0
       jest-worker: 26.5.0
@@ -4709,7 +4718,7 @@ packages:
       jest-message-util: 26.6.0
       jest-mock: 26.6.0
       jest-regex-util: 26.0.0
-      jest-resolve: 26.6.0
+      jest-resolve: 26.6.0_jest-resolve@26.6.0
       jest-snapshot: 26.6.0
       jest-util: 26.6.0
       jest-validate: 26.6.0
@@ -4745,7 +4754,7 @@ packages:
       jest-haste-map: 26.6.0
       jest-matcher-utils: 26.6.0
       jest-message-util: 26.6.0
-      jest-resolve: 26.6.0
+      jest-resolve: 26.6.0_jest-resolve@26.6.0
       natural-compare: 1.4.0
       pretty-format: 26.6.0
       semver: 7.3.2
@@ -5090,7 +5099,7 @@ packages:
       elegant-spinner: 1.0.1
       figures: 1.7.0
       indent-string: 3.2.0
-      listr: 0.14.3
+      listr: 0.14.3_listr@0.14.3
       log-symbols: 1.0.2
       log-update: 2.3.0
       strip-ansi: 3.0.1
@@ -5112,7 +5121,7 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-04PDPqSlsqIOaaaGZ+41vq5FejI9auqTInicFRndCBgE3bXG8D6W1I+mWhk+1nqbHmyhla/6BUrd5OSiHwKRXw==
-  /listr/0.14.3:
+  /listr/0.14.3_listr@0.14.3:
     dependencies:
       '@samverschueren/stream-to-observable': 0.3.1_rxjs@6.6.3
       is-observable: 1.1.0
@@ -5126,6 +5135,8 @@ packages:
     dev: false
     engines:
       node: '>=6'
+    peerDependencies:
+      listr: '*'
     resolution:
       integrity: sha512-RmAl7su35BFd/xoMamRjpIE4j3v+L28o8CT5YhAXQJm1fD+1l9ngXY8JAQRJ+tFK2i5njvi0iRUKV09vPwA0iA==
   /locate-path/3.0.0:
@@ -7204,6 +7215,24 @@ packages:
     dev: false
     resolution:
       integrity: sha512-uZtkfKblCEQtZKBF6EBXVZeQNl82yqtDQdv+eck8u7tdPxjLu2/lp5/uPW+um2tpuxINHWy3GhiccY7QgEaVHQ==
+  /tsup-globby/1.0.1_typescript@4.0.3:
+    dependencies:
+      cac: 6.6.1
+      chalk: 4.1.0
+      chokidar: 3.4.3
+      esbuild: 0.6.34
+      globby: 11.0.1
+      joycon: 2.2.5
+      resolve-from: 5.0.0
+      rollup: 2.32.1
+      rollup-plugin-dts: 1.4.13_rollup@2.32.1+typescript@4.0.3
+      sucrase: 3.16.0
+    dev: false
+    hasBin: true
+    peerDependencies:
+      typescript: '*'
+    resolution:
+      integrity: sha512-xWFW/fDyP6pp5xaLDyKxQmeEs7YVviPH8ZntkNETZ8/JZY4gxOAzq01tOzJbZjldh8p3tqx1PI0iRMWCfayVtw==
   /tsup/3.7.0_typescript@4.0.3:
     dependencies:
       cac: 6.6.1
@@ -7790,11 +7819,12 @@ packages:
       nodemon: 2.0.6
       rimraf: 3.0.2
       tsup: 3.7.0_typescript@4.0.3
+      tsup-globby: 1.0.1_typescript@4.0.3
       typescript: 4.0.3
     dev: false
     name: '@rush-temp/auth-service'
     resolution:
-      integrity: sha512-SM1OwFe4W2sUuWPOt1LRPnTeKV2rTQKDIA8wzb6cv1D44J1Kadi8I4FqhZQdS2wB1ZHqBfMvaNFkzQvJ8hf3xg==
+      integrity: sha512-9g34mv+COnXu4r/M2lkU/kuOOi7Uc4yx6ZovsgeGfaadOqQ2Ud6M/2/dhCQ3h1W4o86UvcSBAdwPHoH5rVtmag==
       tarball: 'file:projects/auth-service.tgz'
     version: 0.0.0
   'file:projects/gateway.tgz':
@@ -7819,13 +7849,14 @@ packages:
       nodemon: 2.0.6
       rimraf: 3.0.2
       tsup: 3.7.0_typescript@4.0.3
+      tsup-globby: 1.0.1_typescript@4.0.3
       typescript: 4.0.3
       waait: 1.0.5
       wait-on: 5.2.0
     dev: false
     name: '@rush-temp/gateway'
     resolution:
-      integrity: sha512-kpQFAVXTOb/USa5knRDQkk/2+YTBeWz4/rEvEK+b0dkC0fZAlbWEzjJMi3CuwrUlJFg7lBkStTW1bILRcgPNLw==
+      integrity: sha512-dh6iO+1KLonkmqipyaiWIxXD8HUJ0VPFBXDnv/d/uQaip18ySuwrg/0p6vuM6QNahFrrzWqu2lEdSzeDv9gt4A==
       tarball: 'file:projects/gateway.tgz'
     version: 0.0.0
   'file:projects/graphql-gen.tgz':
@@ -7849,13 +7880,15 @@ packages:
       nodemon: 2.0.6
       prettier: 2.1.2
       rimraf: 3.0.2
+      tsup-globby: 1.0.1_typescript@4.0.3
       typescript: 4.0.3
     dev: false
     name: '@rush-temp/graphql-gen'
     resolution:
-      integrity: sha512-o/HtOKGlKTnCXVp3+G9QtR+z8X+yGqgjuWcJzw3jfmxXD5xriKXKrhehYVfBJuRgw0xwB3CK2Dp3Lf5oHXOorQ==
+      integrity: sha512-L6HSUJyLJ5rRF24yS+r3PGehPT0hMISVW5xUa7L/JGjpfAwRbucGTWxZ1k2BFre9pZ7L75AVjcjCQFrhAIg4nA==
       tarball: 'file:projects/graphql-gen.tgz'
     version: 0.0.0
+registry: ''
 specifiers:
   '@graphql-codegen/cli': 1.18.0
   '@graphql-codegen/import-types-preset': ~1.18.0
@@ -7875,18 +7908,25 @@ specifiers:
   '@rush-temp/gateway': 'file:./projects/gateway.tgz'
   '@rush-temp/graphql-gen': 'file:./projects/graphql-gen.tgz'
   '@types/concurrently': ^5.2.1
+  '@types/jest': ^26.0.15
+  '@types/node': ^14.14.2
   '@types/nodemon': ^1.19.0
   '@types/rimraf': ^3.0.0
   '@types/wait-on': ^4.0.0
   altair-fastify-plugin: ~2.5.1
   concurrently: ^5.3.0
   cross-env: ~7.0.2
+  esbuild: ^0.7.19
   fastify: ^3.7.0
   graphql: ^15.3.0
   jest: ^26.6.0
+  mercurius: ^6.3.0
+  mercurius-integration-testing: ~3.1.1
+  nodemon: ^2.0.6
   prettier: ^2.1.2
   rimraf: ^3.0.2
   tsup: ~3.7.0
+  tsup-globby: ~1.0.1
   typescript: ^4.0.3
   waait: ~1.0.5
   wait-on: ^5.2.0
