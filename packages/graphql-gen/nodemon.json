@@ -4,5 +4,6 @@
   "ext": "gql",
   "exec": "pnpm build",
   "legacyWatch": false,
-  "runOnChangeOnly": true
+  "runOnChangeOnly": true,
+  "stdin": false
 }

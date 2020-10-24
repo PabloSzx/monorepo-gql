@@ -4,5 +4,6 @@
   "ext": "ts",
   "exec": "pnpm dev:nodemon",
   "legacyWatch": true,
+  "quiet": true,
   "stdin": false
 }

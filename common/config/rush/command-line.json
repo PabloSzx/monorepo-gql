@@ -20,14 +20,14 @@
       "name": "start",
       "summary": "start",
       "autoinstallerName": "cli",
-      "shellCommand": "dotenv -- pnpm start --recursive --no-sort --no-bail --stream"
+      "shellCommand": "cross-env NODE_ENV=production dotenv -- pnpm start --recursive --no-sort --no-bail --stream"
     },
     {
       "commandKind": "global",
       "name": "dev",
       "summary": "dev",
       "autoinstallerName": "cli",
-      "shellCommand": "pnpm build --recursive --filter graphql-gen --filter common && dotenv -- pnpm dev --recursive --no-bail --no-sort --stream"
+      "shellCommand": "cross-env-shell NODE_ENV=development \"pnpm build --recursive --filter graphql-gen --filter common && dotenv -- pnpm dev --recursive --no-bail --no-sort --stream\""
     },
     {
       "commandKind": "global",

@@ -3,5 +3,6 @@
   "watch": ["src", "./package.json", "pnpm-lock.yaml"],
   "ext": "ts",
   "exec": "pnpm dev:nodemon",
-  "legacyWatch": true
+  "legacyWatch": true,
+  "stdin": false
 }
