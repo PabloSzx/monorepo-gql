@@ -12,7 +12,7 @@ export const createJestConfig = (config: Config.InitialOptions = {}): Config.Ini
 };
 
 const envName = "NODE_ENV";
-const NODE_ENV: "development" | "production" | "test" = (process.env[envName] as any) || "development";
+export const NODE_ENV: "development" | "production" | "test" = (process.env[envName] as any) || "development";
 
 export const IS_TEST = NODE_ENV === "test";
 export const IS_NOT_TEST = !IS_TEST;

@@ -7,7 +7,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc --emitDeclarationOnly && tsup-globby src -d dist --format cjs",
+    "build": "tsc --emitDeclarationOnly && tsup-globby src -d dist --format cjs --minify",
     "dev": "wait-on tcp:4001 && nodemon",
     "dev:nodemon": "tsup-globby src -d dist --format cjs && concurrently --kill-others-on-fail --raw \"pnpm start\" \"tsc\"",
     "start": "wait-on tcp:4001 && node dist/index.js",

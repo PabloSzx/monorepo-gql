@@ -7,7 +7,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "graphql-codegen && tsc --emitDeclarationOnly && tsup-globby -d dist --format cjs src/index.ts",
+    "build": "graphql-codegen && tsc --emitDeclarationOnly && tsup-globby -d dist --format cjs src/index.ts --minify",
     "dev": "nodemon"
   },
   "dependencies": {

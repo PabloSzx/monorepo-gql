@@ -7,7 +7,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc --emitDeclarationOnly && tsup-globby src -d dist --format cjs",
+    "build": "tsc --emitDeclarationOnly && tsup-globby src -d dist --format cjs --minify",
     "dev": "nodemon",
     "dev:nodemon": "tsup-globby -d dist --format cjs src && concurrently --kill-others-on-fail --raw \"pnpm start\" \"tsc\"",
     "start": "node dist/index.js",
