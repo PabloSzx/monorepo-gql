@@ -9,7 +9,7 @@
   "pnpmOptions": {
     "pnpmStore": "global",
     "resolutionStrategy": "fast",
-    "useWorkspaces": false
+    "useWorkspaces": true
   },
   "nodeSupportedVersionRange": ">=14.14.0 <15",
   "suppressNodeLtsWarning": true,

@@ -22,11 +22,11 @@
     "@graphql-typed-document-node/core": "^3.1.0",
     "fastify": "^3.7.0",
     "graphql": "^15.3.0",
-    "graphql-gen": "^1.0.0",
+    "graphql-gen": "workspace:^1.0.0",
     "mercurius": "^6.4.0",
     "mercurius-integration-testing": "^3.1.1",
     "cross-env": "^7.0.2",
-    "common": "^1.0.0"
+    "common": "workspace:^1.0.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.15",

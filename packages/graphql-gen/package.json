@@ -15,7 +15,7 @@
     "@graphql-typed-document-node/core": "^3.1.0",
     "graphql": "^15.3.0",
     "cross-env": "^7.0.2",
-    "common": "^1.0.0"
+    "common": "workspace:^1.0.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.18.0",

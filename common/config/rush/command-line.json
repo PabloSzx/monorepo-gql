@@ -22,29 +22,24 @@
       "shellCommand": "pretty-quick --staged"
     },
     {
-      "commandKind": "bulk",
+      "commandKind": "global",
       "name": "test",
       "summary": "test",
-      "enableParallelism": true,
       "description": "test",
-      "incremental": true,
-      "ignoreMissingScript": true,
-      "allowWarningsInSuccessfulBuild": true
+      "shellCommand": "pnpm test --recursive --no-sort --no-bail"
     },
     {
-      "commandKind": "bulk",
+      "commandKind": "global",
       "name": "start",
       "summary": "start",
-      "enableParallelism": true,
       "description": "start",
-      "ignoreMissingScript": true
+      "shellCommand": "pnpm run --recursive --no-sort --no-bail start"
     },
     {
       "commandKind": "global",
       "name": "dev",
       "summary": "dev",
-      "autoinstallerName": "cli",
-      "shellCommand": "pnpm run --dir ./packages/graphql-gen build && concurrently -i -n gateway,auth,gql \"pnpm run --dir ./packages/gateway dev\" \"pnpm run --dir ./packages/auth-service dev\" \"pnpm run --dir ./packages/graphql-gen dev\""
+      "shellCommand": "pnpm run --recursive --filter graphql-gen build && pnpm test --recursive"
     },
     {
       "commandKind": "global",

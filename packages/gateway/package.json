@@ -10,21 +10,21 @@
     "build": "tsc --emitDeclarationOnly && tsup-globby src -d dist --format cjs",
     "dev": "wait-on tcp:4001 && nodemon",
     "dev:nodemon": "tsup-globby src -d dist --format cjs && concurrently --kill-others-on-fail --raw \"pnpm start\" \"tsc\"",
-    "start": "node dist/index.js",
+    "start": "wait-on tcp:4001 && node dist/index.js",
     "test": "jest"
   },
   "dependencies": {
     "@graphql-typed-document-node/core": "^3.1.0",
     "altair-fastify-plugin": "^2.5.1",
-    "auth-service": "^1.0.0",
+    "auth-service": "workspace:^1.0.0",
     "cross-env": "^7.0.2",
     "fastify": "^3.7.0",
     "graphql": "^15.3.0",
-    "graphql-gen": "^1.0.0",
+    "graphql-gen": "workspace:^1.0.0",
     "mercurius": "^6.4.0",
     "waait": "^1.0.5",
     "wait-on": "^5.2.0",
-    "common": "^1.0.0"
+    "common": "workspace:^1.0.0"
   },
   "devDependencies": {
     "@graphql-tools/utils": "^7.0.0",
