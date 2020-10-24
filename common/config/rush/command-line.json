@@ -44,7 +44,7 @@
       "name": "dev",
       "summary": "dev",
       "autoinstallerName": "cli",
-      "shellCommand": "pnpm run --dir ./packages/graphql-gen build && concurrently -i -n gateway,auth,gql \"pnpm run --dir ./packages/gateway dev\" \"pnpm run --dir ./packages/auth dev\" \"pnpm run --dir ./packages/graphql-gen dev\""
+      "shellCommand": "pnpm run --dir ./packages/graphql-gen build && concurrently -i -n gateway,auth,gql \"pnpm run --dir ./packages/gateway dev\" \"pnpm run --dir ./packages/auth-service dev\" \"pnpm run --dir ./packages/graphql-gen dev\""
     },
     {
       "commandKind": "global",
