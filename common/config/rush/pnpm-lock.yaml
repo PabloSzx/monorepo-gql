@@ -15,14 +15,14 @@ importers:
       graphql: 15.3.0
       graphql-gen: 'link:../graphql-gen'
       mercurius: 6.4.0
-      mercurius-integration-testing: 3.1.1_ff64d2c6ca56e06203c753ebfc566f7d
+      mercurius-integration-testing: 3.1.2_ff64d2c6ca56e06203c753ebfc566f7d
     devDependencies:
       '@types/jest': 26.0.15
       '@types/node': 14.14.2
       '@types/nodemon': 1.19.0
       '@types/rimraf': 3.0.0
       concurrently: 5.3.0
-      esbuild: 0.7.19
+      esbuild: 0.7.21
       jest: 26.6.1
       nodemon: 2.0.6
       rimraf: 3.0.2
@@ -42,13 +42,13 @@ importers:
       common: 'workspace:^1.0.0'
       concurrently: ^5.3.0
       cross-env: ^7.0.2
-      esbuild: ^0.7.19
+      esbuild: ^0.7.21
       fastify: ^3.7.0
       graphql: ^15.3.0
       graphql-gen: 'workspace:^1.0.0'
       jest: ^26.6.1
       mercurius: ^6.4.0
-      mercurius-integration-testing: ^3.1.1
+      mercurius-integration-testing: ^3.1.2
       nodemon: ^2.0.6
       rimraf: ^3.0.2
       tsup: ^3.7.1
@@ -91,9 +91,9 @@ importers:
       '@types/rimraf': 3.0.0
       '@types/wait-on': 4.0.0
       concurrently: 5.3.0
-      esbuild: 0.7.19
+      esbuild: 0.7.21
       jest: 26.6.1
-      mercurius-integration-testing: 3.1.1_ff64d2c6ca56e06203c753ebfc566f7d
+      mercurius-integration-testing: 3.1.2_ff64d2c6ca56e06203c753ebfc566f7d
       nodemon: 2.0.6
       rimraf: 3.0.2
       tsup: 3.7.1_typescript@4.0.3
@@ -112,13 +112,13 @@ importers:
       common: 'workspace:^1.0.0'
       concurrently: ^5.3.0
       cross-env: ^7.0.2
-      esbuild: ^0.7.19
+      esbuild: ^0.7.21
       fastify: ^3.7.0
       graphql: ^15.3.0
       graphql-gen: 'workspace:^1.0.0'
       jest: ^26.6.1
       mercurius: ^6.4.0
-      mercurius-integration-testing: ^3.1.1
+      mercurius-integration-testing: ^3.1.2
       nodemon: ^2.0.6
       rimraf: ^3.0.2
       tsup: ^3.7.1
@@ -133,7 +133,7 @@ importers:
       cross-env: 7.0.2
       graphql: 15.3.0
     devDependencies:
-      '@graphql-codegen/cli': 1.18.0_graphql@15.3.0
+      '@graphql-codegen/cli': 1.19.0_graphql@15.3.0
       '@graphql-codegen/introspection': 1.18.0_graphql@15.3.0
       '@graphql-codegen/near-operation-file-preset': 1.17.11_graphql@15.3.0
       '@graphql-codegen/typed-document-node': 1.17.9_graphql@15.3.0
@@ -144,14 +144,14 @@ importers:
       '@types/nodemon': 1.19.0
       '@types/rimraf': 3.0.0
       concurrently: 5.3.0
-      esbuild: 0.7.19
+      esbuild: 0.7.21
       nodemon: 2.0.6
       prettier: 2.1.2
       rimraf: 3.0.2
       tsup: 3.7.1_typescript@4.0.3
       typescript: 4.0.3
     specifiers:
-      '@graphql-codegen/cli': ^1.18.0
+      '@graphql-codegen/cli': ^1.19.0
       '@graphql-codegen/import-types-preset': ^1.18.0
       '@graphql-codegen/introspection': ^1.18.0
       '@graphql-codegen/near-operation-file-preset': ^1.17.11
@@ -166,7 +166,7 @@ importers:
       common: 'workspace:^1.0.0'
       concurrently: ^5.3.0
       cross-env: ^7.0.2
-      esbuild: ^0.7.19
+      esbuild: ^0.7.21
       graphql: ^15.3.0
       nodemon: ^2.0.6
       prettier: ^2.1.2
@@ -676,8 +676,8 @@ packages:
       '@babel/generator': 7.12.1
       '@babel/helper-function-name': 7.10.4
       '@babel/helper-split-export-declaration': 7.11.0
-      '@babel/parser': 7.11.5
-      '@babel/types': 7.11.5
+      '@babel/parser': 7.12.3
+      '@babel/types': 7.12.1
       debug: 4.2.0
       globals: 11.12.0
       lodash: 4.17.20
@@ -734,10 +734,10 @@ packages:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
     resolution:
       integrity: sha512-P8+PTHMrNdR/FJn+AQmLtba76H57E5R82Qw8QsntYUYAPUPXOIy4bn3v0rzcrkOnFHanTFjckNcLCF7khEHwJQ==
-  /@graphql-codegen/cli/1.18.0_graphql@15.3.0:
+  /@graphql-codegen/cli/1.19.0_graphql@15.3.0:
     dependencies:
       '@graphql-codegen/core': 1.17.8_graphql@15.3.0
-      '@graphql-codegen/plugin-helpers': 1.17.9_graphql@15.3.0
+      '@graphql-codegen/plugin-helpers': 1.18.0_graphql@15.3.0
       '@graphql-tools/apollo-engine-loader': 6.2.5_graphql@15.3.0
       '@graphql-tools/code-file-loader': 6.2.5_graphql@15.3.0
       '@graphql-tools/git-loader': 6.2.5_graphql@15.3.0
@@ -786,10 +786,10 @@ packages:
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
     resolution:
-      integrity: sha512-dtQYLHb+hJ9CirJ0oNJgMpYHVjHXmr1JZUkqz1FF0ZweBt5syG9EHS5Upk+xoDUNsw63i8PDRgoZLZRvDFyyZw==
+      integrity: sha512-kKYCpkZkc9wvutYc4khSS0zcMIRuP4uckOdBVdusJaTAopH6tc2NXWNARWfsacNhFi2Yo4m/FdY0DsrX2gO0OQ==
   /@graphql-codegen/core/1.17.8_graphql@15.3.0:
     dependencies:
-      '@graphql-codegen/plugin-helpers': 1.17.9_graphql@15.3.0
+      '@graphql-codegen/plugin-helpers': 1.18.0_graphql@15.3.0
       '@graphql-tools/merge': 6.2.5_graphql@15.3.0
       '@graphql-tools/utils': 6.2.4_graphql@15.3.0
       graphql: 15.3.0
@@ -852,6 +852,25 @@ packages:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
     resolution:
       integrity: sha512-kyj+qsnLGd1JLqXuLpvI6Q/VW7frhoHHNxYJWerpwsSV9m4cttmFj8d9JTfYPZbg6cLIRR7+10lVugzMKozjzA==
+  /@graphql-codegen/plugin-helpers/1.18.0_graphql@15.3.0:
+    dependencies:
+      '@graphql-tools/utils': 6.2.4_graphql@15.3.0
+      camel-case: 4.1.1
+      common-tags: 1.8.0
+      constant-case: 3.0.3
+      graphql: 15.3.0
+      import-from: 3.0.0
+      lodash: 4.17.20
+      lower-case: 2.0.1
+      param-case: 3.0.3
+      pascal-case: 3.1.1
+      tslib: 2.0.3
+      upper-case: 2.0.1
+    dev: true
+    peerDependencies:
+      graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
+    resolution:
+      integrity: sha512-OZW0ZZP6AaTC7f48lTYQUmKYj4hHy01/InJJs62bCplEsgCk6HDYUiHKKS5bX+YKGuAHnRCjFvLbwpaxYjm6+Q==
   /@graphql-codegen/typed-document-node/1.17.9_graphql@15.3.0:
     dependencies:
       '@graphql-codegen/plugin-helpers': 1.17.9_graphql@15.3.0
@@ -2983,12 +3002,12 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-InRdL/Q96pUucPqovJzvuLhquZr6jOn81FDVwFjCKz1rYKIm9OdOC+7Fs4vr6x48vKBl5LzKgtjU39BUpO636A==
-  /esbuild/0.7.19:
+  /esbuild/0.7.21:
     dev: true
     hasBin: true
     requiresBuild: true
     resolution:
-      integrity: sha512-0Ur8ZtuRPwJMj4+VjRLqn5z88WXf+2etZhe4dBA6eYFcdviQefb+Vrd59cTk0VXg08NU/BnAMkalCMHI8lig/A==
+      integrity: sha512-qEnJdj+6Mdpt5kZwwCqO6PDNXSHNDDOPbnF4pduS3nub1v5GfgZfi8ysZ2DN4Q65WWgx6hz1a237ZETEHZpR0Q==
   /escalade/3.1.1:
     dev: true
     engines:
@@ -5256,7 +5275,7 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=
-  /mercurius-integration-testing/3.1.1_ff64d2c6ca56e06203c753ebfc566f7d:
+  /mercurius-integration-testing/3.1.2_ff64d2c6ca56e06203c753ebfc566f7d:
     dependencies:
       '@graphql-typed-document-node/core': 3.1.0_graphql@15.3.0
       cookie: 0.4.1
@@ -5270,7 +5289,7 @@ packages:
       graphql: ^15.3.0
       mercurius: ^6.1.1
     resolution:
-      integrity: sha512-H28tMth8SnTShdmo7zke4rubeZTP9gycMb9n4qeB9CF9HWmu461n1WQJRpPzUgpLhfk0P9d7OZ6XHyDtXHW24Q==
+      integrity: sha512-aNj8QYD88nrC74H8CczVQ3Ij0aKZfboq5pyrxRa5N3XV2f1GgsMOLH/2qi6vdrZm1XULFK1BkI0A4k8yOuTZHQ==
   /mercurius/6.4.0:
     dependencies:
       end-of-stream: 1.4.4

@@ -31,10 +31,10 @@
     },
     {
       "commandKind": "global",
-      "name": "upd",
-      "summary": "update dependencies",
+      "name": "upgrade",
+      "summary": "update dependencies interactively",
       "autoinstallerName": "cli",
-      "shellCommand": "upd"
+      "shellCommand": "pnpm update -C common/temp --recursive --interactive --latest"
     }
   ]
 }
