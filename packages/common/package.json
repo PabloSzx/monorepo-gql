@@ -6,12 +6,12 @@
   "author": "PabloSz",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc --emitDeclarationOnly && tsup-globby src -d dist --minify",
+    "build": "tsc --emitDeclarationOnly && tsup src -d dist --minify",
     "dev": "nodemon",
-    "dev:nodemon": "concurrently \"tsup-globby src -d dist\" \"tsc --emitDeclarationOnly\""
+    "dev:nodemon": "concurrently \"tsup src -d dist\" \"tsc --emitDeclarationOnly\""
   },
   "dependencies": {
-    "tsup-globby": "^1.0.1"
+    "tsup": "^3.7.1"
   },
   "devDependencies": {
     "@jest/types": "^26.6.1",

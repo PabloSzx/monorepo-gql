@@ -7,7 +7,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "graphql-codegen && tsc --emitDeclarationOnly && tsup-globby -d dist --format cjs src/index.ts --minify",
+    "build": "graphql-codegen && tsc --emitDeclarationOnly && tsup -d dist --format cjs src/index.ts --minify",
     "dev": "nodemon"
   },
   "dependencies": {
@@ -34,6 +34,6 @@
     "prettier": "^2.1.2",
     "rimraf": "^3.0.2",
     "typescript": "^4.0.3",
-    "tsup-globby": "^1.0.1"
+    "tsup": "^3.7.1"
   }
 }

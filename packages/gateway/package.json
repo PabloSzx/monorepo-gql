@@ -7,9 +7,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc --emitDeclarationOnly && tsup-globby src -d dist --format cjs --minify",
+    "build": "tsc --emitDeclarationOnly && tsup src -d dist --format cjs --minify",
     "dev": "wait-on tcp:4001 && nodemon",
-    "dev:nodemon": "tsup-globby src -d dist --format cjs && concurrently --kill-others-on-fail --raw \"pnpm start\" \"tsc\"",
+    "dev:nodemon": "tsup src -d dist --format cjs && concurrently --kill-others-on-fail --raw \"pnpm start\" \"tsc\"",
     "start": "wait-on tcp:4001 && node dist/index.js",
     "test": "jest"
   },
@@ -40,7 +40,7 @@
     "mercurius-integration-testing": "^3.1.1",
     "nodemon": "^2.0.6",
     "rimraf": "^3.0.2",
-    "tsup-globby": "^1.0.1",
+    "tsup": "^3.7.1",
     "typescript": "^4.0.3"
   },
   "pnpm": {

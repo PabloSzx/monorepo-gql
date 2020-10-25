@@ -26,7 +26,7 @@ importers:
       jest: 26.6.1
       nodemon: 2.0.6
       rimraf: 3.0.2
-      tsup-globby: 1.0.1_typescript@4.0.3
+      tsup: 3.7.1_typescript@4.0.3
       typescript: 4.0.3
     specifiers:
       '@graphql-tools/load': ^6.2.5
@@ -51,11 +51,11 @@ importers:
       mercurius-integration-testing: ^3.1.1
       nodemon: ^2.0.6
       rimraf: ^3.0.2
-      tsup-globby: ^1.0.1
+      tsup: ^3.7.1
       typescript: ^4.0.3
   ../../packages/common:
     dependencies:
-      tsup-globby: 1.0.1_typescript@4.0.3
+      tsup: 3.7.1_typescript@4.0.3
     devDependencies:
       '@jest/types': 26.6.1
       '@types/node': 14.14.2
@@ -67,7 +67,7 @@ importers:
       '@types/node': ^14.14.2
       concurrently: ^5.3.0
       nodemon: ^2.0.6
-      tsup-globby: ^1.0.1
+      tsup: ^3.7.1
       typescript: ^4.0.3
   ../../packages/gateway:
     dependencies:
@@ -96,7 +96,7 @@ importers:
       mercurius-integration-testing: 3.1.1_ff64d2c6ca56e06203c753ebfc566f7d
       nodemon: 2.0.6
       rimraf: 3.0.2
-      tsup-globby: 1.0.1_typescript@4.0.3
+      tsup: 3.7.1_typescript@4.0.3
       typescript: 4.0.3
     specifiers:
       '@graphql-tools/utils': ^7.0.0
@@ -121,7 +121,7 @@ importers:
       mercurius-integration-testing: ^3.1.1
       nodemon: ^2.0.6
       rimraf: ^3.0.2
-      tsup-globby: ^1.0.1
+      tsup: ^3.7.1
       typescript: ^4.0.3
       waait: ^1.0.5
       wait-on: ^5.2.0
@@ -148,7 +148,7 @@ importers:
       nodemon: 2.0.6
       prettier: 2.1.2
       rimraf: 3.0.2
-      tsup-globby: 1.0.1_typescript@4.0.3
+      tsup: 3.7.1_typescript@4.0.3
       typescript: 4.0.3
     specifiers:
       '@graphql-codegen/cli': ^1.18.0
@@ -171,7 +171,7 @@ importers:
       nodemon: ^2.0.6
       prettier: ^2.1.2
       rimraf: ^3.0.2
-      tsup-globby: ^1.0.1
+      tsup: ^3.7.1
       typescript: ^4.0.3
 lockfileVersion: 5.2
 packages:
@@ -7110,7 +7110,7 @@ packages:
   /tslib/2.0.3:
     resolution:
       integrity: sha512-uZtkfKblCEQtZKBF6EBXVZeQNl82yqtDQdv+eck8u7tdPxjLu2/lp5/uPW+um2tpuxINHWy3GhiccY7QgEaVHQ==
-  /tsup-globby/1.0.1_typescript@4.0.3:
+  /tsup/3.7.1_typescript@4.0.3:
     dependencies:
       cac: 6.6.1
       chalk: 4.1.0
@@ -7126,7 +7126,7 @@ packages:
     peerDependencies:
       typescript: '*'
     resolution:
-      integrity: sha512-xWFW/fDyP6pp5xaLDyKxQmeEs7YVviPH8ZntkNETZ8/JZY4gxOAzq01tOzJbZjldh8p3tqx1PI0iRMWCfayVtw==
+      integrity: sha512-r/JLZqCvjOrs9lpNrtlZ6I4VgGsKdQuTX5dyMNb7GoGGTl77at3AKSP5uEH6Fg9v78fb6VTABNoNdsmt+Fxubg==
   /tunnel-agent/0.6.0:
     dependencies:
       safe-buffer: 5.2.1
