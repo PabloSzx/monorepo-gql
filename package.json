@@ -12,13 +12,14 @@
   },
   "license": "MIT",
   "author": "PabloSz",
-  "main": "null",
   "scripts": {
     "build": "pnpm build --recursive --stream",
-    "dev": "cross-env-shell NODE_ENV=development \"pnpm build --recursive --filter graphql-gen --filter common && dotenv -- pnpm dev --recursive --no-bail --no-sort --stream\"",
+    "build:clean": "pnpm clean && pnpm i && pnpm build",
+    "clean": "pnpm recursive --stream --no-bail --no-sort exec -- rimraf dist",
+    "dev": "cross-env-shell NODE_ENV=development \"pnpm build --recursive --filter graphql-gen --filter common && dotenv -- pnpm dev --color --recursive --no-bail --no-sort --stream\"",
     "preinstall": "npx only-allow pnpm",
     "prettier": "pretty-quick",
-    "start": "cross-env NODE_ENV=production dotenv -- pnpm start --recrusive --no-sort --no-bail --stream",
+    "start": "cross-env NODE_ENV=production dotenv -- pnpm start --recursive --no-sort --no-bail --stream",
     "test": "dotenv -- pnpm test --recursive --no-sort --no-bail",
     "update-deps": "pnpm update --recursive --interactive --latest"
   },
