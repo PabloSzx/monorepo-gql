@@ -1,7 +1,26 @@
 importers:
   .:
-    specifiers: {}
-  ../../packages/auth-service:
+    devDependencies:
+      concurrently: 5.3.0
+      cross-env: 7.0.2
+      dotenv: 8.2.0
+      dotenv-cli: 4.0.0
+      husky: 4.3.0
+      prettier: 2.1.2
+      pretty-quick: 3.1.0_prettier@2.1.2
+      rimraf: 3.0.2
+      typescript: 4.0.3
+    specifiers:
+      concurrently: ^5.3.0
+      cross-env: ^7.0.2
+      dotenv: ^8.2.0
+      dotenv-cli: ^4.0.0
+      husky: ^4.3.0
+      prettier: ^2.1.2
+      pretty-quick: ^3.1.0
+      rimraf: ^3.0.2
+      typescript: ^4.0.3
+  packages/auth-service:
     dependencies:
       '@graphql-tools/load': 6.2.5_graphql@15.3.0
       '@graphql-tools/load-files': 6.2.4_graphql@15.3.0
@@ -53,7 +72,7 @@ importers:
       rimraf: ^3.0.2
       tsup: ^3.7.1
       typescript: ^4.0.3
-  ../../packages/common:
+  packages/common:
     dependencies:
       tsup: 3.7.1_typescript@4.0.3
     devDependencies:
@@ -69,7 +88,7 @@ importers:
       nodemon: ^2.0.6
       tsup: ^3.7.1
       typescript: ^4.0.3
-  ../../packages/gateway:
+  packages/gateway:
     dependencies:
       '@graphql-typed-document-node/core': 3.1.0_graphql@15.3.0
       altair-fastify-plugin: 2.5.1_fastify@3.7.0
@@ -125,11 +144,10 @@ importers:
       typescript: ^4.0.3
       waait: ^1.0.5
       wait-on: ^5.2.0
-  ../../packages/graphql-gen:
+  packages/graphql-gen:
     dependencies:
       '@graphql-codegen/import-types-preset': 1.18.0_graphql@15.3.0
       '@graphql-typed-document-node/core': 3.1.0_graphql@15.3.0
-      common: 'link:../common'
       cross-env: 7.0.2
       graphql: 15.3.0
     devDependencies:
@@ -163,7 +181,6 @@ importers:
       '@types/node': ^14.14.2
       '@types/nodemon': ^1.19.0
       '@types/rimraf': ^3.0.0
-      common: 'workspace:^1.0.0'
       concurrently: ^5.3.0
       cross-env: ^7.0.2
       esbuild: ^0.7.21
@@ -676,8 +693,8 @@ packages:
       '@babel/generator': 7.12.1
       '@babel/helper-function-name': 7.10.4
       '@babel/helper-split-export-declaration': 7.11.0
-      '@babel/parser': 7.12.3
-      '@babel/types': 7.12.1
+      '@babel/parser': 7.11.5
+      '@babel/types': 7.11.5
       debug: 4.2.0
       globals: 11.12.0
       lodash: 4.17.20
@@ -727,7 +744,7 @@ packages:
       integrity: sha512-v9kIhKwjeZThiWrLmj0y17CWoyddASLj9O2yvbZkbvw/N3rWOYy9zkV66ursAoVr0mV15bL8g0c4QZUE6cdDoQ==
   /@graphql-codegen/add/2.0.1_graphql@15.3.0:
     dependencies:
-      '@graphql-codegen/plugin-helpers': 1.17.9_graphql@15.3.0
+      '@graphql-codegen/plugin-helpers': 1.18.0_graphql@15.3.0
       graphql: 15.3.0
       tslib: 2.0.3
     peerDependencies:
@@ -802,7 +819,7 @@ packages:
   /@graphql-codegen/import-types-preset/1.18.0_graphql@15.3.0:
     dependencies:
       '@graphql-codegen/add': 2.0.1_graphql@15.3.0
-      '@graphql-codegen/plugin-helpers': 1.17.9_graphql@15.3.0
+      '@graphql-codegen/plugin-helpers': 1.18.0_graphql@15.3.0
       '@graphql-codegen/visitor-plugin-common': 1.17.16_graphql@15.3.0
       graphql: 15.3.0
       tslib: 2.0.3
@@ -813,7 +830,7 @@ packages:
       integrity: sha512-KVcRPExiZZmLKV2LTDG7xUVmqYZTo6C0z+/bX6872xPe2DIS1IgbMIFgSnT+TwS8fTuRJ6W5ABVtTqqsjDaeQw==
   /@graphql-codegen/introspection/1.18.0_graphql@15.3.0:
     dependencies:
-      '@graphql-codegen/plugin-helpers': 1.17.9_graphql@15.3.0
+      '@graphql-codegen/plugin-helpers': 1.18.0_graphql@15.3.0
       graphql: 15.3.0
       tslib: 2.0.3
     dev: true
@@ -824,7 +841,7 @@ packages:
   /@graphql-codegen/near-operation-file-preset/1.17.11_graphql@15.3.0:
     dependencies:
       '@graphql-codegen/add': 2.0.1_graphql@15.3.0
-      '@graphql-codegen/plugin-helpers': 1.17.9_graphql@15.3.0
+      '@graphql-codegen/plugin-helpers': 1.18.0_graphql@15.3.0
       '@graphql-codegen/visitor-plugin-common': 1.17.16_graphql@15.3.0
       graphql: 15.3.0
       parse-filepath: 1.0.2
@@ -834,24 +851,6 @@ packages:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
     resolution:
       integrity: sha512-mB2IK45pBT9/w8FNxQali3GaFYz10Jk1BlobhN767IigIiViND+nztzXKonFz1Je+Ua/PMqfkIcL7jm4U9bmkg==
-  /@graphql-codegen/plugin-helpers/1.17.9_graphql@15.3.0:
-    dependencies:
-      '@graphql-tools/utils': 6.2.4_graphql@15.3.0
-      camel-case: 4.1.1
-      common-tags: 1.8.0
-      constant-case: 3.0.3
-      graphql: 15.3.0
-      import-from: 3.0.0
-      lodash: 4.17.20
-      lower-case: 2.0.1
-      param-case: 3.0.3
-      pascal-case: 3.1.1
-      tslib: 2.0.3
-      upper-case: 2.0.1
-    peerDependencies:
-      graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
-    resolution:
-      integrity: sha512-kyj+qsnLGd1JLqXuLpvI6Q/VW7frhoHHNxYJWerpwsSV9m4cttmFj8d9JTfYPZbg6cLIRR7+10lVugzMKozjzA==
   /@graphql-codegen/plugin-helpers/1.18.0_graphql@15.3.0:
     dependencies:
       '@graphql-tools/utils': 6.2.4_graphql@15.3.0
@@ -866,14 +865,13 @@ packages:
       pascal-case: 3.1.1
       tslib: 2.0.3
       upper-case: 2.0.1
-    dev: true
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
     resolution:
       integrity: sha512-OZW0ZZP6AaTC7f48lTYQUmKYj4hHy01/InJJs62bCplEsgCk6HDYUiHKKS5bX+YKGuAHnRCjFvLbwpaxYjm6+Q==
   /@graphql-codegen/typed-document-node/1.17.9_graphql@15.3.0:
     dependencies:
-      '@graphql-codegen/plugin-helpers': 1.17.9_graphql@15.3.0
+      '@graphql-codegen/plugin-helpers': 1.18.0_graphql@15.3.0
       '@graphql-codegen/visitor-plugin-common': 1.17.16_graphql@15.3.0
       auto-bind: 4.0.0
       change-case: 4.1.1
@@ -886,7 +884,7 @@ packages:
       integrity: sha512-RetrVWfPiZOrDVQTCyUO75kX5r9ust0FSA5cAISDoCjVzNfbSOHQOinup3w9XQhKsLx22PyQIBYlw66rymaWHg==
   /@graphql-codegen/typescript-operations/1.17.8_graphql@15.3.0:
     dependencies:
-      '@graphql-codegen/plugin-helpers': 1.17.9_graphql@15.3.0
+      '@graphql-codegen/plugin-helpers': 1.18.0_graphql@15.3.0
       '@graphql-codegen/typescript': 1.17.11_graphql@15.3.0
       '@graphql-codegen/visitor-plugin-common': 1.17.16_graphql@15.3.0
       auto-bind: 4.0.0
@@ -899,7 +897,7 @@ packages:
       integrity: sha512-nU1ZldRB4vGcg4FQhOp3GOOyjfIwO+cI110zZhxQw8SV7pbNDJnCckbvkdEOkW+1/jVJcUul8jQVvuym5olipw==
   /@graphql-codegen/typescript-resolvers/1.17.10_graphql@15.3.0:
     dependencies:
-      '@graphql-codegen/plugin-helpers': 1.17.9_graphql@15.3.0
+      '@graphql-codegen/plugin-helpers': 1.18.0_graphql@15.3.0
       '@graphql-codegen/typescript': 1.17.11_graphql@15.3.0
       '@graphql-codegen/visitor-plugin-common': 1.17.16_graphql@15.3.0
       '@graphql-tools/utils': 6.2.4_graphql@15.3.0
@@ -913,7 +911,7 @@ packages:
       integrity: sha512-dchQOCSuIImu11fLIxzkRCfA09CgxgaCtPFROcId3VHwuQeD/41xxVhOZmHG6HkI0qjnJ0Sqb3XYi9jG+meq7A==
   /@graphql-codegen/typescript/1.17.11_graphql@15.3.0:
     dependencies:
-      '@graphql-codegen/plugin-helpers': 1.17.9_graphql@15.3.0
+      '@graphql-codegen/plugin-helpers': 1.18.0_graphql@15.3.0
       '@graphql-codegen/visitor-plugin-common': 1.17.16_graphql@15.3.0
       auto-bind: 4.0.0
       graphql: 15.3.0
@@ -925,7 +923,7 @@ packages:
       integrity: sha512-cZsuOWpPWWHX7IIv2xMbrI/AZOiv+wEzyGpoGFV8zU6vjs54C50gb7Chhj9XPjMbOhUQ+z3Pn01geTRvi1gDeA==
   /@graphql-codegen/visitor-plugin-common/1.17.16_graphql@15.3.0:
     dependencies:
-      '@graphql-codegen/plugin-helpers': 1.17.9_graphql@15.3.0
+      '@graphql-codegen/plugin-helpers': 1.18.0_graphql@15.3.0
       '@graphql-tools/relay-operation-optimizer': 6.2.5_graphql@15.3.0
       array.prototype.flatmap: 1.2.3
       auto-bind: 4.0.0
@@ -1838,6 +1836,12 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-45sJrqne+Gao8gbiiK9jkZuuOcQ=
+  /array-differ/3.0.0:
+    dev: true
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-THtfYS6KtME/yIAhKjZ2ul7XI96lQGHRputJQHO80LAWQnuGP4iCIN8vdMRboGbIEYBwU33q8Tch1os2+X0kMg==
   /array-union/2.1.0:
     engines:
       node: '>=8'
@@ -1869,6 +1873,12 @@ packages:
       node: '>= 0.4'
     resolution:
       integrity: sha512-Az3OYxgsa1g7xDYp86l0nnN4bcmuEITGe1rbdEBVkrqkzMgDcbdQ2R7r41pNzti+4NMces3H8gMmuioZUilLgw==
+  /arrify/2.0.1:
+    dev: true
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-3duEwti880xqi4eAMN8AyR4a0ByT90zoYdLlevfrvU43vb0YZwZVfxOgxWrLXXXpyugL0hNZc9G6BiB5B3nUug==
   /asap/2.0.6:
     resolution:
       integrity: sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=
@@ -2474,6 +2484,10 @@ packages:
       node: '>=4.0.0'
     resolution:
       integrity: sha512-6P6g0uetGpW/sdyUy/iQQCbFF0kWVMSIVSyYz7Zgjcgh8mgw8PQzDNZeyZ5DQ2gM7LBoZPHmnjz8rUthkBG5tw==
+  /compare-versions/3.6.0:
+    dev: true
+    resolution:
+      integrity: sha512-W6Af2Iw1z4CB7q4uU4hv646dW9GQuBM+YpC0UvUCWSD8w90SJjp+ujJuXaEMtAXBtSqGfMPuFOVn4/+FlaqfBA==
   /component-emitter/1.3.0:
     dev: true
     resolution:
@@ -2570,7 +2584,6 @@ packages:
   /cross-env/7.0.2:
     dependencies:
       cross-spawn: 7.0.3
-    dev: false
     engines:
       node: '>=10.14'
       npm: '>=6'
@@ -2846,6 +2859,20 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==
+  /dotenv-cli/4.0.0:
+    dependencies:
+      cross-spawn: 7.0.3
+      dotenv: 8.2.0
+      dotenv-expand: 5.1.0
+      minimist: 1.2.5
+    dev: true
+    hasBin: true
+    resolution:
+      integrity: sha512-ByKEec+ashePEXthZaA1fif9XDtcaRnkN7eGdBDx3HHRjwZ/rA1go83Cbs4yRrx3JshsCf96FjAyIA2M672+CQ==
+  /dotenv-expand/5.1.0:
+    dev: true
+    resolution:
+      integrity: sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==
   /dotenv/8.2.0:
     dev: true
     engines:
@@ -3426,6 +3453,14 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw==
+  /find-versions/3.2.0:
+    dependencies:
+      semver-regex: 2.0.0
+    dev: true
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-P8WRou2S+oe222TOCHitLy8zj+SIsVJh52VP4lvXkaFVnOFFdoWv1H1Jjvel1aI6NCFOAaeAVm8qrI0odiLcww==
   /flatstr/1.0.12:
     dev: false
     resolution:
@@ -3875,6 +3910,25 @@ packages:
       node: '>=8.12.0'
     resolution:
       integrity: sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==
+  /husky/4.3.0:
+    dependencies:
+      chalk: 4.1.0
+      ci-info: 2.0.0
+      compare-versions: 3.6.0
+      cosmiconfig: 7.0.0
+      find-versions: 3.2.0
+      opencollective-postinstall: 2.0.3
+      pkg-dir: 4.2.0
+      please-upgrade-node: 3.2.0
+      slash: 3.0.0
+      which-pm-runs: 1.0.0
+    dev: true
+    engines:
+      node: '>=10'
+    hasBin: true
+    requiresBuild: true
+    resolution:
+      integrity: sha512-tTMeLCLqSBqnflBZnlVDhpaIMucSGaYyX6855jM4AguGeWCeSzNdb1mfyWduTZ3pe3SJVvVWGL0jO1iKZVPfTA==
   /iconv-lite/0.4.24:
     dependencies:
       safer-buffer: 2.1.2
@@ -5419,6 +5473,12 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-XWoue2+i4wLWxtPCRdZk3bNJc2+FhomyA3QzxBM4+4Iui/+iGLeubeShtKa8MwZ0HXVLJqWTMznkCsYs7xjiQQ==
+  /mri/1.1.6:
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha512-oi1b3MfbyGa7FJMP9GmLTttni5JoICpYBRlq+x5V16fZbLsnL9N3wFqqIm/nIG43FjUFkFh9Epzp/kzUGUnJxQ==
   /ms/2.0.0:
     resolution:
       integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
@@ -5429,6 +5489,18 @@ packages:
   /ms/2.1.2:
     resolution:
       integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
+  /multimatch/4.0.0:
+    dependencies:
+      '@types/minimatch': 3.0.3
+      array-differ: 3.0.0
+      array-union: 2.1.0
+      arrify: 2.0.1
+      minimatch: 3.0.4
+    dev: true
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-lDmx79y1z6i7RNx0ZGCPq1bzJ6ZoDDKbvh7jxr9SJcWLkShMzXrHbYVpTdnhNM5MXpDUxCQ4DgqVttVXlBgiBQ==
   /mute-stream/0.0.8:
     dev: true
     resolution:
@@ -5677,6 +5749,11 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-kbpaSSGJTWdAY5KPVeMOKXSrPtr8C8C7wodJbcsd51jRnmD+GZu8Y0VoU6Dm5Z4vWr0Ig/1NKuWRKf7j5aaYSg==
+  /opencollective-postinstall/2.0.3:
+    dev: true
+    hasBin: true
+    resolution:
+      integrity: sha512-8AV/sCtuzUeTo8gQK5qDZzARrulB3egtLzFgteqB2tcT4Mw7B8Kt7JcDHmltjz6FOAHsvTevk70gZEbhM4ZS9Q==
   /optionator/0.8.3:
     dependencies:
       deep-is: 0.1.3
@@ -5932,6 +6009,12 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==
+  /please-upgrade-node/3.2.0:
+    dependencies:
+      semver-compare: 1.0.0
+    dev: true
+    resolution:
+      integrity: sha512-gQR3WpIgNIKwBMVLkpMUeR3e1/E1y42bqDQZfql+kDeXd8COYfM8PQA4X6y7a8u9Ua9FHmsrrmirW2vHs45hWg==
   /posix-character-classes/0.1.1:
     dev: true
     engines:
@@ -5968,6 +6051,23 @@ packages:
       node: '>= 10'
     resolution:
       integrity: sha512-MeqqsP5PYcRBbGMvwzsyBdmAJ4EFX7pWFyl7x4+dMVg5pE0ZDdBIvEH2ergvIO+Gvwv1wh64YuOY9y5LuyY/GA==
+  /pretty-quick/3.1.0_prettier@2.1.2:
+    dependencies:
+      chalk: 3.0.0
+      execa: 4.0.3
+      find-up: 4.1.0
+      ignore: 5.1.8
+      mri: 1.1.6
+      multimatch: 4.0.0
+      prettier: 2.1.2
+    dev: true
+    engines:
+      node: '>=10.13'
+    hasBin: true
+    peerDependencies:
+      prettier: '>=2.0.0'
+    resolution:
+      integrity: sha512-DtxIxksaUWCgPFN7E1ZZk4+Aav3CCuRdhrDSFZENb404sYMtuo9Zka823F+Mgeyt8Zt3bUiCjFzzWYE9LYqkmQ==
   /promise.allsettled/1.0.2:
     dependencies:
       array.prototype.map: 1.0.2
@@ -6449,6 +6549,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-GckO+MS/wT4UogDyoI/H/S1L0MCcKS1XX/vp48wfmU7Nw4woBmb8mIpu4zPBQjKlRT88/bt9xdoV4111jPpNJA==
+  /semver-compare/1.0.0:
+    dev: true
+    resolution:
+      integrity: sha1-De4hahyUGrN+nvsXiPavxf9VN/w=
   /semver-diff/3.1.1:
     dependencies:
       semver: 6.3.0
@@ -6457,6 +6561,12 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-GX0Ix/CJcHyB8c4ykpHGIAvLyOwOobtM/8d+TQkAd81/bEjgPHrfba41Vpesr7jX/t8Uh+R3EX9eAS5be+jQYg==
+  /semver-regex/2.0.0:
+    dev: true
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-mUdIBBvdn0PLOeP3TEkMH7HHeUP3GjsXCwKarjv/kGmUFOYg1VqEemKhoQpWMu6X2I8kHeuVdGibLGkVK+/5Qw==
   /semver-store/0.3.0:
     dev: false
     resolution:
@@ -7466,6 +7576,10 @@ packages:
   /which-module/2.0.0:
     resolution:
       integrity: sha1-2e8H3Od7mQK4o6j6SzHD4/fm6Ho=
+  /which-pm-runs/1.0.0:
+    dev: true
+    resolution:
+      integrity: sha1-Zws6+8VS4LVd9rd4DKdGFfI60cs=
   /which/1.3.1:
     dependencies:
       isexe: 2.0.0
@@ -7587,12 +7701,12 @@ packages:
   /y18n/4.0.0:
     resolution:
       integrity: sha512-r9S/ZyXu/Xu9q1tYlpsLIsa3EeLXXk0VwlxqTcFRfg9EhMW+17kbt9G0NrgCmhGb5vT2hyhJZLfDGx+7+5Uj/w==
-  /y18n/5.0.4:
+  /y18n/5.0.5:
     dev: true
     engines:
       node: '>=10'
     resolution:
-      integrity: sha512-deLOfD+RvFgrpAmSZgfGdWYE+OKyHcVHaRQ7NphG/63scpRvTHHeQMAxGGvaLVGJ+HYVcCXlzcTK0ZehFf+eHQ==
+      integrity: sha512-hsRUr4FFrvhhRH12wOdfs38Gy7k2FFzB9qgN9v3aLykRq0dRcdcpz5C9FxdS2NuhOrI/628b/KSTJ3rwHysYSg==
   /yaeti/0.0.6:
     dev: true
     engines:
@@ -7669,11 +7783,10 @@ packages:
       get-caller-file: 2.0.5
       require-directory: 2.1.1
       string-width: 4.2.0
-      y18n: 5.0.4
+      y18n: 5.0.5
       yargs-parser: 20.2.3
     dev: true
     engines:
       node: '>=10'
     resolution:
       integrity: sha512-upWFJOmDdHN0syLuESuvXDmrRcWd1QafJolHskzaw79uZa7/x53gxQKiR07W59GWY1tFhhU/Th9DrtSfpS782g==
-registry: ''

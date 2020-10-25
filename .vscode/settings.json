@@ -2,5 +2,5 @@
   "files.associations": {
     "*.json": "jsonc"
   },
-  "typescript.tsdk": "common/temp/node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
